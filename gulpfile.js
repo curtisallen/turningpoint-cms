@@ -3,10 +3,9 @@ var shell = require('gulp-shell');
 
 const dbName = 'tp-mongo';
 
-var paths = {
-	'src':['./models/**/*.js','./routes/**/*.js', 'keystone.js', 'package.json']
-
-};
+// var paths = {
+	// 'src':['./models/**/*.js','./routes/**/*.js', 'keystone.js', 'package.json']
+// };
 
 gulp.task('runKeystone', shell.task('node keystone.js'));
 

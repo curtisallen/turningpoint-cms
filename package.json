@@ -17,6 +17,7 @@
     "gulp-watch": "^4.3.5"
   },
   "scripts": {
+    "test": "eslint .",
     "lint": "eslint .",
     "start": "node keystone.js"
   }
