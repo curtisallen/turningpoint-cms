@@ -1,0 +1,12 @@
+name: turningpoint cms
+description: Turning Point of the City CMS
+avatar: resources/tp.png
+config:
+  - name: MONGO_URI
+    friendly_name: Mongo connection string
+    info: 'example mongodb://<dbuser>:<dbpassword>@localhost:27017/turningpoint'
+    global: true
+slackscopes:
+  - commands
+  - bot
+  - "users:read"
