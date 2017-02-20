@@ -6,6 +6,10 @@ config:
     friendly_name: Mongo connection string
     info: 'example mongodb://<dbuser>:<dbpassword>@localhost:27017/turningpoint'
     global: true
+  - name: COOKIE_SECRET
+    friendly_name: cookie secret
+    info: 'some random string'
+    global: true
 slackscopes:
   - commands
   - bot
