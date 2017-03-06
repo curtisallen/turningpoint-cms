@@ -35,7 +35,7 @@ keystone.init({
       { "host": "ds159079-ar0.mlab.com", "port": 59079 }
     ]
   }
-	}
+	},
 	'auth': true,
 	'user model': 'User',
 	'signin redirect': '/',
