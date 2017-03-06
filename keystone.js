@@ -20,9 +20,9 @@ keystone.init({
 	'view engine': 'jade',
 
 	'emails': 'templates/emails',
-	'trust proxy' : true,
+	'trust proxy' : '0.0.0.0/0',
 	'auto update': true,
-	'session': true,
+	'session': false,
 	//'session store': 'connect-mongostore',
 	//'session store options': {
   //'db': {
