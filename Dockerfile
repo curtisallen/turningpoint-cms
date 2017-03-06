@@ -4,7 +4,8 @@ RUN apk update && apk upgrade
 RUN apk add --update build-base
 RUN apk add --update python python-dev py-pip
 RUN apk --no-cache add ca-certificates && update-ca-certificates
-ENV NODE_ENV production
+# ENV NODE_ENV production
+ENV NODE_ENV development
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
