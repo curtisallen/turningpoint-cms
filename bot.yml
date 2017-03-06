@@ -10,6 +10,14 @@ config:
     friendly_name: cookie secret
     info: 'some random string'
     global: true
+  - name: MONGO_USER
+    friendly_name: mongo username
+    info: 'mongo username'
+    global: true
+  - name: MONGO_PASSWORD
+    friendly_name: mongo password
+    info: 'some password'
+    global: true
 slackscopes:
   - commands
   - bot
