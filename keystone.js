@@ -26,6 +26,7 @@ keystone.init({
 	//'session store': 'mongo',
 	'auth': true,
 	'user model': 'User',
+	'signin redirect': '/',
 });
 
 // Load your project's Models
