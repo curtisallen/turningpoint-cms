@@ -22,18 +22,6 @@ keystone.init({
 	'emails': 'templates/emails',
 	'auto update': true,
 	'session': true,
-	//'session store': 'connect-mongostore',
-	//'session store options': {
-  //'db': {
-    //'name': 'turningpoint',
-    //'username': process.env.MONGO_USER,
-    //'password': process.env.MONGO_PASSWORD,
-    //'servers': [
-      //{ 'host': 'ds159079-a0.mlab.com', 'port': 59079 },
-      //{ 'host': 'ds159079-a1.mlab.com', 'port': 59079 },
-    //]
-  //}
-	//},
 	'auth': true,
 	'user model': 'User',
 	//'signin redirect': '/',
