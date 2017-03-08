@@ -1,0 +1,48 @@
+@startuml
+' uncomment the line below if you're using computer with a retina display
+skinparam dpi 300
+!define Table(name,desc) class name as "desc" << (T,#FFAAAA) >>
+' we use bold for primary key
+' green color for unique
+' and underscore for not_null
+!define primary_key(x) <b>x</b>
+!define unique(x) <color:green>x</color>
+!define not_null(x) <u>x</u>
+' other tags available:
+' <i></i>
+' <back:COLOR></color>, where color is a color name or html color code
+' (#FFAACC)
+' see: http://plantuml.com/classes.html#More
+hide methods
+hide stereotypes
+
+' entities
+
+Table(youth, "youth\n(youth in our system)") {
+primary_key(_id) INTEGER
+not_null(firstName) STRING
+not_null(anonymizedName) String
+lastName STRING
+not_null(enrolledDate) Date ISO 8601
+not_null(lastModifiedDateTime) Date ISO 8601
+}
+
+Table(statusEvent, "statusEvent\n(youth status)") {
+primary_key(_id) INTEGER
+not_null(status) ENUM [Spartan | Veteran]
+not_null(dateEnrolled) Date ISO 8601
+}
+
+
+' relationships
+' one-to-one relationship
+' user -- user_profile : "A user only \nhas one profile"
+' one to may relationship
+youth --> statusEvent : "List of Status Changes"
+note "This is a sub document\n of youth in mongo" as N1
+N1 .. statusEvent
+' many to many relationship
+' Add mark if you like
+' user "1" --> "*" user_group : "A user may be \nin many groups"
+' group "1" --> "0..N" user_group : "A group may \ncontain many users"
+@enduml
