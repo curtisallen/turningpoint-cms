@@ -1,18 +1,19 @@
 let keystone = require('keystone');
-let faker = require('faker');
 let Types = keystone.Field.Types;
 
 /**
  * Youth Model
  * ==========
  */
-var Youth = new keystone.List('Youth', {
-	autokey: { path: 'slug', from: 'anonymized', unique: true },
-});
+var Youth = new keystone.List('Youth');
 
 Youth.add({
-	name: { type: Types.Name, required: false, index: true },
-	anonymized: { type: Types.Name, required: true, index: true, value: function () { return faker.name.findName(); } },
+	name: { type: Types.Name, required: true, initial: true, index: true },
+	anonymized: {
+		type: Types.Text,
+		required: false,
+		index: true,
+	},
 	enrolledDate: { type: Types.Date, required: true, index: true, default: Date.now },
 	lastModifiedDateTime: { type: Types.Datetime, required: true, index: true, default: Date.now },
 

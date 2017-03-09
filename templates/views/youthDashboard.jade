@@ -1,0 +1,25 @@
+extends ../layouts/default
+include ../mixins/youth
+
+block intro
+	.container
+		h1 Youths
+		
+block content
+	.container
+		.row
+			.col-sm-8
+				if youths.results.length
+					if youths.totalPages > 1
+						.lead.text-muted Showing
+							string #{youths.first}
+							| to
+							strong #{youths.last}
+							| of
+							strong #{youths.total}
+							| posts
+					else
+						.lead.text-muted Showing #{utils.plural(youths.results.length, '* youth')}
+
+					each youth in youths.results
+						+youth(youth)
