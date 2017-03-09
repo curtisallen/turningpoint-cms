@@ -18,6 +18,11 @@ Prerequisites
     gulp createMongo
     gulp
 
+#### Development Watch
+
+While developing it's useful to watch for file changes and automatically restart the server upon change. The following command will enable this functionality.
+
+    npm run watch
 
 #### Troubleshooting
 
