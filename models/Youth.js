@@ -15,8 +15,14 @@ Youth.add({
 		index: true,
 	},
 	enrolledDate: { type: Types.Date, required: true, index: true, default: Date.now },
-	lastModifiedDateTime: { type: Types.Datetime, required: true, index: true, default: Date.now },
+	lastModifiedDateTime: { type: Types.Datetime, required: true, index: true, default: Date.now, noedit: true },
+
+	/**
+	 * Relationships
+	 */
+	status: { type: Types.Relationship, ref: 'Status', many: true },
+	infringement: { type: Types.Relationship, ref: 'Infringement', many: true },
 
 });
-Youth.defaultColumns = 'firstName, lastName, anonymized, enrolledDate, lastModifiedDateTime';
+Youth.defaultColumns = 'firstName, lastName, anonymized, enrolledDate, status, infringement, lastModifiedDateTime';
 Youth.register();
