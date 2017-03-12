@@ -19,28 +19,35 @@ hide stereotypes
 ' entities
 
 Table(youth, "youth\n(youth in our system)") {
-primary_key(_id) INTEGER
+primary_key(_id) STRING
 not_null(firstName) STRING
+not_null(lastName) STRING
 not_null(anonymizedName) String
-lastName STRING
 not_null(enrolledDate) Date ISO 8601
 not_null(lastModifiedDateTime) Date ISO 8601
 }
 
-Table(statusEvent, "statusEvent\n(youth status)") {
-primary_key(_id) INTEGER
+Table(status, "status\n(youth turning point status)") {
+primary_key(_id) STRING
 not_null(status) ENUM [Spartan | Veteran]
-not_null(dateEnrolled) Date ISO 8601
+not_null(enrolledDate) Date ISO 8601
+not_null(lastModifiedDateTime) Date ISO 8601
 }
 
+Table(infringement, "youth infringement incidents"){
+primary_key(_id) STRING
+non_null(type) ENUM [refused, walk-out, suspended, slept, sexual comment, horseplay, contraband]
+not_null(date) Date ISO 8601
+not_null(lastModifiedDateTime) Date ISO 8601
+}
 
 ' relationships
 ' one-to-one relationship
 ' user -- user_profile : "A user only \nhas one profile"
 ' one to may relationship
-youth --> statusEvent : "List of Status Changes"
-note "This is a sub document\n of youth in mongo" as N1
-N1 .. statusEvent
+youth --> status : "List of Status Changes"
+youth --> infringement: "List of Youth Infringements"
+note "Relationships use Mongoose's references" as N1
 ' many to many relationship
 ' Add mark if you like
 ' user "1" --> "*" user_group : "A user may be \nin many groups"
