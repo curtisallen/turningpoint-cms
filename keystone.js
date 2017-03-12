@@ -20,21 +20,8 @@ keystone.init({
 	'view engine': 'jade',
 
 	'emails': 'templates/emails',
-	'trust proxy' : '0.0.0.0/0',
 	'auto update': true,
-	'session': false,
-	//'session store': 'connect-mongostore',
-	//'session store options': {
-  //'db': {
-    //'name': 'turningpoint',
-    //'username': process.env.MONGO_USER,
-    //'password': process.env.MONGO_PASSWORD,
-    //'servers': [
-      //{ 'host': 'ds159079-a0.mlab.com', 'port': 59079 },
-      //{ 'host': 'ds159079-a1.mlab.com', 'port': 59079 },
-    //]
-  //}
-	//},
+	'session': true,
 	'auth': true,
 	'user model': 'User',
 	//'signin redirect': '/',
