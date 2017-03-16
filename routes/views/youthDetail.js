@@ -12,17 +12,16 @@ exports = module.exports = (req, res) => {
 
 	view.on('init', (next) => {
 		let youthId = req.params.youthId;
-			if (youthId === undefined) {
-				return console.error("youth id undefined");
-			}
-		Youth.model.findOne({ _id: youthId }).exec( (err, youth) => {
+		if (youthId === undefined) {
+			return console.error('youth id undefined');
+		}
+		Youth.model.findOne({ _id: youthId }).exec((err, youth) => {
 			console.log(`youth: ${JSON.stringify(youth)}`);
 			locals.youth = youth;
 			locals.displayDate = moment(youth.enrolledDate).fromNow();
 			locals.displayLastUpdated = moment(youth.lastModifiedDateTime).fromNow();
 			next(err);
 		});
-		
 	});
 	// render the view
 	view.render('youthDetail');
