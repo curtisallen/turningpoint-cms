@@ -38,6 +38,7 @@ exports = module.exports = function (app) {
 	app.all('/contact', routes.views.contact);
 
 	app.all('/youthDashboard', middleware.requireUser, routes.views.youthDashboard);
+	app.all('/youthDetail/:youthId', middleware.requireUser, routes.views.youthDetail);
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
 
